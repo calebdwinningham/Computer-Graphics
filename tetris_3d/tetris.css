@@ -1,0 +1,45 @@
+/*-----------------------------------------------------------------------------
+ Caleb Winningham, Tetris Phase 1
+ CS474, Graphics, Spring 2016
+ Instructor: Dr Brown
+
+ Documentation:
+    None
+------------------------------------------------------------------------------*/
+#W1_canvas {
+  background: #cdcdcd;
+}
+
+#W2_canvas {
+  background: rebeccapurple;
+}
+
+table{
+  border: 2px black solid;
+  collapse: border;
+}
+
+.outdata{
+  text-align: center;
+}
+
+.rotate{
+  width: 100px;
+}
+
+.shift{
+  width: 60px;
+}
+
+.pp{
+  width: 100px;
+}
+
+#ng{
+  align-content: center;
+  width: 100px;
+}
+
+h4{
+  display: inline-block; text-align: center;
+}

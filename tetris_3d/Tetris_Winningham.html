@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-----------------------------------------------------------------------------
+ Caleb Winningham, Tetris Phase 1
+ CS474, Graphics, Spring 2016
+ Instructor: Dr Brown
+
+ Documentation:
+    None
+------------------------------------------------------------------------------>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Winningham 3D Tetris</title>
+  <link href="tetris.css" rel="stylesheet"><!--Links Stylesheets-->
+  <script type='text/javascript' src="jquery.js" rel="javascript/text"></script>
+</head>
+<body>
+<table>
+  <tbody>
+      <tr> <!--Row 1-->
+
+        <td>
+          <canvas width="350" height="450" id="W1_canvas"></canvas> <!--Main Game Board-->
+
+          <form align="center">
+            <input id="play" type="button" class="pp" value="Play"/><!--Play and Pause buttons-->
+            <input id="pause" type="button" class="pp" value="Pause"/>
+          </form>
+
+          <form>
+            <h4>Rotation Controls</h4> <!--Allows Rotation-->
+            <table align="center">
+              <tr>
+                <td>
+                  <input id="xpos" class="rotate" type="button" value="+X"/> <!-- X Rotations -->
+                  <input id="xneg"class="rotate" type="button" value="-X"/>
+                </td>
+              </tr>
+                <tr>
+                  <td>
+                    <input id="ypos" class="rotate" type="button" value="+Y"/> <!-- Y Rotations -->
+                    <input id="yneg" class="rotate" type="button" value="-Y"/>
+                  </td>
+                </tr>
+              <tr>
+                <td>
+                  <input id="zpos" class="rotate" type="button" value="+Z"/> <!-- Z Rotations -->
+                  <input id="zneg" class="rotate" type="button" value="-Z"/>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </td>
+
+        <td>
+          <canvas width="200" height="200" id="W2_canvas"></canvas> <!-- Up Next Screen -->
+
+          <form>
+            <h4 align="center">Projector Type</h4><br> <!-- Select Perspective -->
+            <input id="pers" type="radio" checked = "" value="Perspective">Perspective<br> <!--checked="" -->
+            <input id="ortho" type="radio" value="Orthogonal">Orthogonal<br>
+          </form>
+
+          <table>
+            <tr>
+              <h4>Camera Selection</h4> <!-- Camera Options -->
+              <td>
+                <form>
+                  <input id="cam1" type="radio" value ="Camera 1" name="Camera 1">Left View<br>
+                  <input id="cam2" type="radio" value ="Camera 2" name="Camera 2">Right View<br>
+                  <input id="cam3" type="radio" value ="Camera 3" name="Camera 3">Rear View<br>
+                  <input id="cam4" type="radio" checked = "" value ="Camera 4" name="Camera 4">Front View<br>
+                </form>
+              </td>
+
+              <td>
+                <p></p><!-- Creates a Gap -->
+              </td>
+
+              <td>
+                <p>Score: 100</p> <!-- Displays Score and Level-->
+                <p>Level: 1</p>
+              </td>
+
+            </tr>
+          </table>
+          <p></p> <!-- Empty Paragraph for Spaceing -->
+          <input id="ng" type="button" name="New Game" value="New Game"><br> <!-- New Game Selector -->
+          <table align="center">
+
+            <thead>
+              <h4>Shift Controls</h4> <!-- Shift Controls -->
+            </thead>
+            <tr>
+              <td></td>
+              <td align="center"><input id="zspos" class="shift" type="button" value="Z+"/></td><!-- Z Pos Shift -->
+              <td></td>
+            </tr>
+            <tr align="center">
+              <td align="center"><input id="xsneg" class="shift" type="button" value="X-"/></td><!-- X Neg Shift -->
+              <td align="center"><input id="drop" class="shift" type="button" value="Drop"/></td><!-- Drop Button -->
+              <td align="center"><input id="xspos" class="shift" type="button" value="X+"/></td><!-- X Pos Shift -->
+            </tr>
+
+            <tr>
+              <td></td><!-- Spacing -->
+              <td align="center"><input id="zsneg" class="shift" type="button" value="Z-"/></td><!-- Z Neg Shift -->
+              <td></td><!-- Spacing -->
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </tbody></table>
+    <script type='text/javascript' src="learn_webgl_02.js"></script>
+    <script type='text/javascript' src="learn_webgl_console_messages.js"></script>
+    <script type='text/javascript' src="learn_webgl_point4.js"></script>
+    <script type='text/javascript' src="learn_webgl_vector3.js"></script>
+    <script type='text/javascript' src="learn_webgl_matrix.js"></script>
+    <script type='text/javascript' src="learn_webgl_obj_to_arrays.js"></script>
+    <script type='text/javascript' src="learn_webgl_model_render_05.js"></script>
+    <script type='text/javascript' src="scale_about_origin_events.js"></script>
+    <script type='text/javascript' src="scale_about_origin_render.js"></script>
+    <script type='text/javascript' src="tetris_container.js"></script>
+    <script type='text/javascript' src="simple_transform_example_render4.js"></script>
+    <script type='text/javascript' src="simple_transform_example_events4.js"></script>
+    <script type='text/javascript' src="nextpiece.js"></script>
+    <script>
+      var shaders = ["shader05.vert", "shader05.frag"];
+      var models = ["container.obj", "cube.obj"];
+      var controls = ["play", "pause", "xpos", "xneg", "ypos", "yneg", "zpos", "zneg", "ng", "zspos",
+        "zsneg", "xspos", "xsneg", "drop", "pers", "ortho", "cam1", "cam2", "cam3", "cam4"];
+      var my_program = new Learn_webgl("W1_canvas", "SceneSimpleExampleRender4", models, shaders, controls, "");
+    </script>
+</body>
+</html>
